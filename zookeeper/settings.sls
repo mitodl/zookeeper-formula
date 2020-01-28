@@ -55,7 +55,7 @@
 {%- set alt_config           = gc.get('directory', pc.get('alt_config', '/etc/zookeeper/conf')) %}
 {%- set real_config          = alt_config + '-' + version %}
 {%- set alt_home             = prefix + '/zookeeper' %}
-{%- set real_home            = alt_home + '-' + version %}
+{%- set real_home            = prefix + '/apache-zookeeper-' + version %}
 {%- set real_config_src      = real_home + '/conf' %}
 {%- set real_config_dist     = alt_config + '.dist' %}
 
