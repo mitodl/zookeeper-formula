@@ -13,7 +13,7 @@
 {%- set userhome          = p.get('userhome', '/home/' + user ) %}
 {%- set prefix            = p.get('prefix', '/opt') %}
 
-{%- set version           = g.get('version', p.get('version', '3.4.6')) %}
+{%- set version           = g.get('version', p.get('version', '3.5.6')) %}
 {%- set version_name      = 'zookeeper-' + version %}
 
 # This tells the state whether or not to restart the service on configuration change
