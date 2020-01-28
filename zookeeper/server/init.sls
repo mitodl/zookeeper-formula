@@ -2,7 +2,7 @@
 {%- from 'zookeeper/settings.sls' import zk with context -%}
 
 include:
-  - zookeeper
+  - zookeeper.install
   - zookeeper.config
 
 move-zookeeper-dist-conf:
@@ -16,7 +16,7 @@ zookeeper-config-link:
   file.symlink:
     - name: {{ zk.alt_config }}
     - target: {{ zk.real_config }}
-      
+
 zookeeper-config-dir:
   file.symlink:
     - name: {{ zk.real_home }}/conf

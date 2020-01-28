@@ -11,22 +11,10 @@
 {%- set user              = p.get('user', 'zookeeper') %}
 {%- set group             = p.get('group', 'zookeeper') %}
 {%- set userhome          = p.get('userhome', '/home/' + user ) %}
-{%- set prefix            = p.get('prefix', '/usr/lib') %}
+{%- set prefix            = p.get('prefix', '/opt') %}
 
 {%- set version           = g.get('version', p.get('version', '3.4.6')) %}
 {%- set version_name      = 'zookeeper-' + version %}
-{%- set default_url       = 'https://archive.apache.org/dist/zookeeper/{0}/{0}.tar.gz'.format(version_name) %}
-{%- set source_url        = g.get('source_url', p.get('source_url', default_url)) %}
-{%- set default_md5s = {
-  "3.4.6": "971c379ba65714fd25dc5fe8f14e9ad1",
-  "3.4.7": "58b515d1c1352e135d17c9a9a9ffedd0",
-  "3.4.8": "6bdddcd5179e9c259ef2bf4be2158d18",
-  "3.4.9": "3e8506075212c2d41030d874fcc9dcd2",
-  "3.4.10": "e4cf1b1593ca870bf1c7a75188f09678"
-  }
-%}
-
-{%- set source_md5       = p.get('source_md5', default_md5s.get(version, '00000000000000000000000000000000')) %}
 
 # This tells the state whether or not to restart the service on configuration change
 {%- set restart_on_change = p.get('restart_on_config', 'True') %}
