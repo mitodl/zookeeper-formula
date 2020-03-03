@@ -105,10 +105,10 @@
 
 {%- for node in zookeeper_nodes %}
   {%- set node_id = loop.index %}
-  {%- set zookeeper_with_id = {"id": node_id, "address": node.encode('ascii')} %}
+  {%- set zookeeper_with_id = {"id": node_id, "address": node} %}
   {%- do zookeepers_with_ids.append(zookeeper_with_id) %}
-  {%- do connection_string.append( node.encode('ascii') + ':' + port | string() ) %}
-  {%- do zookeepers.append( node.encode('ascii') ) %}
+  {%- do connection_string.append( node + ':' + port | string() ) %}
+  {%- do zookeepers.append( node ) %}
   {%- if not myid_dist and node in minion_ids %}
     {%- do myid_dist.append(node_id) %}
   {%- endif %}
