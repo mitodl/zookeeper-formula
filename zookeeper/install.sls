@@ -35,8 +35,8 @@ zk-directories:
 install-zookeeper:
   archive.extracted:
     - name: {{ zk.prefix }}
-    - source: {{ mirror_url }}zookeeper/zookeeper-{{ zk.version }}/apache-zookeeper-{{ zk.version }}.tar.gz
-    - source_hash: {{ mirror_backup }}zookeeper/zookeeper-{{ zk.version }}/apache-zookeeper-{{ zk.version }}.tar.gz.sha512
+    - source: {{ mirror_url }}zookeeper/zookeeper-{{ zk.version }}/apache-zookeeper-{{ zk.version }}-bin.tar.gz
+    - source_hash: {{ mirror_backup }}zookeeper/zookeeper-{{ zk.version }}/apache-zookeeper-{{ zk.version }}-bin.tar.gz.sha512
     - archive_format: tar
     - if_missing: {{ zk.real_home }}/lib
     - user: {{ zk.user }}
