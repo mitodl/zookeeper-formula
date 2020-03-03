@@ -3,15 +3,18 @@
       'service_script': '/etc/init.d/zookeeper',
       'service_script_source': 'zookeeper.init.d.ubuntu',
       'service_script_mode': '755',
+      'pkgs': ['default-jdk-headless']
     },
     'RedHat': {
       'service_script': '/etc/init.d/zookeeper',
       'service_script_source': 'zookeeper.init.d',
       'service_script_mode': '755',
+      'pkgs': ['java-latest-openjdk-headless']
     },
     'Suse': {
       'service_script': '/etc/init.d/zookeeper',
       'service_script_source': 'zookeeper.init.d.ubuntu',
       'service_script_mode': '755',
+      'pkgs': ['java-latest-openjdk-headless']
     },
 }, merge=salt['pillar.get']('zookeeper:lookup')) %}

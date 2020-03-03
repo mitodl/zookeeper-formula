@@ -1,8 +1,13 @@
 {%- from 'zookeeper/settings.sls' import zk with context -%}
+{%- from 'zookeeper/map.jinja' import zookeeper_map with context -%}
 {% set mirror_data = 'https://www.apache.org/dyn/closer.cgi/zookeeper?as_json=1'|http_query %}
 {% set mirror_urls = mirror_data.body|load_json %}
 {% set mirror_url = mirror_urls.preferred %}
 {% set mirror_backup = mirror_urls.backup[0] %}
+
+install_zookeeper_dependencies:
+  pkg.installed:
+    - pkgs: {{ zookeeper_map.pkgs }}
 
 zk-user-group:
   group.present:
