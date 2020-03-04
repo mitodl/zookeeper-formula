@@ -109,7 +109,7 @@
   {%- do zookeepers_with_ids.append(zookeeper_with_id) %}
   {%- do connection_string.append( node + ':' + port | string() ) %}
   {%- do zookeepers.append( node ) %}
-  {%- if not myid_dist and node in minion_ids %}
+  {%- if not myid_dist and (node in minion_ids or node.split('.')[0] in minion_ids) %}
     {%- do myid_dist.append(node_id) %}
   {%- endif %}
 {%- endfor %}
